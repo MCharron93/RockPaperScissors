@@ -43,14 +43,17 @@ namespace RockPaperScissors
         {
           case "rock":
             Console.WriteLine($"You've picked a formidable weapon! The {userChoice} is sturdy and wielded by many with the desire to break enemies on first hit.");
+            System.Console.WriteLine("Your foe has chosen " + computerChoice);
             running = false;
             break;
           case "paper":
             Console.WriteLine($"Ah, yes, the {userChoice}! The {userChoice} is light yet fast! Any foe who dares to cross paths with you may not realize their quick ill fate...");
+            System.Console.WriteLine("Your foe has chosen " + computerChoice);
             running = false;
             break;
           case "scissors":
             Console.WriteLine($"The beautiful, but deadly {userChoice}, a classic choice for an experienced fighter! May your strike be swift and clean! ");
+            System.Console.WriteLine("Your foe has chosen " + computerChoice);
             running = false;
             break;
           default:
@@ -60,10 +63,16 @@ namespace RockPaperScissors
 
       }
       //   NOTE prints results via a ternary and the outcome of computed values
-      int userBattleWeapon = gameOptions.IndexOf(userChoice);
-      int computerBattleWeapon = gameOptions.IndexOf(computerChoice);
-      var result = userBattleWeapon > computerBattleWeapon ? "You have beaten your foe, revel in your glory!" : (userBattleWeapon < computerBattleWeapon ? "Your foe has struck you down! You die with the honor of fighting in battle" : "Looks like you both thought of the same thing... Guess you guys both die!");
-      System.Console.WriteLine(result);
+      // int userBattleWeapon = gameOptions.IndexOf(userChoice);
+      // int computerBattleWeapon = gameOptions.IndexOf(computerChoice);
+      // var result = userBattleWeapon > computerBattleWeapon ? "You have beaten your foe, revel in your glory!" : (userBattleWeapon < computerBattleWeapon ? "Your foe has struck you down! You die with the honor of fighting in battle" : "Looks like you both thought of the same thing... Guess you guys both die!");
+      // System.Console.WriteLine(result);
+
+
+      var finalResult = userChoice == computerChoice ? "You both strike each other down." : (userChoice == "rock" && computerChoice == "paper" || userChoice == "scissors" && computerChoice == "rock" || userChoice == "paper" && computerChoice == "scissors" ? "You have lost the battle" : "You have bested your foe, victory is yours!");
+      System.Console.WriteLine(finalResult);
+
+
     }
   }
 }
